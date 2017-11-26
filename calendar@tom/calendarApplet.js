@@ -1,0 +1,1 @@
+/home/etomort/.local/share/cinnamon/applets/calendar@tom/applet.js

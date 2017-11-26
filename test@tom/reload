@@ -1,0 +1,3 @@
+# replace the EXTENSION_UUID with your extension/applet/desklet name
+# replace the APPLET with other types if you are not working with an applet
+dbus-send --session --dest=org.Cinnamon.LookingGlass --type=method_call /org/Cinnamon/LookingGlass org.Cinnamon.LookingGlass.ReloadExtension string:'test@tom' string:'APPLET'

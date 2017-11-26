@@ -1,0 +1,1 @@
+/home/etomort/.local/share/cinnamon/applets/settings-example@tom/applet.js

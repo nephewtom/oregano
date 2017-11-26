@@ -1,0 +1,7 @@
+{
+ "uuid": "test@tom",
+ "name": "Tom Test",
+ "description": "Minimize all windows",
+ "icon": "desktop",
+ "max-instances": -1
+}
