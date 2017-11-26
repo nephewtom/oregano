@@ -1,0 +1,75 @@
+* TODO Make Cinnamon panel manually from scratch for better understanding.
+  - Add one by one all the applets in the panel.
+    WATCH OUT! It seems there are 2 parts in the same panel in the settings file.
+  - Check what appears in .cinnamon/settings.ini
+  - Steps:
+    + cinset reset
+    + Add: Spacer, Battery, Spacer
+      Check how the Spacers appear in settings.ini file.
+    + cinset save
+    + Review settings.ini
+
+* Add an option to my Calendar for a shortcut (Super+C) just like the weather one.
+
+* Use test@tom applete to display a VPN monitor (using ping to several IP addresses).
+  - The icon will show a blinking light, green if it is ok, and red if it is not (yellow too?).
+  - The popup menu will show info about the ping to the chosen IP addresses (it could show the TTL).
+
+* I am not able to change the Emacs icon that appears with Alt+Tab, if I start Emacs with different arguments.
+  Even thoung I am able to change it in other apps that are symbolic links.
+  - https://unix.stackexchange.com/questions/281755/where-are-the-icons-in-the-alt-tab-switcher-loaded-from-how-can-i-edit-them
+  - https://bountify.co/how-do-i-change-alt-tab-icons-in-linux-mint
+  - https://superuser.com/questions/333606/alt-tab-icon-list-in-gnome-and-metacity
+
+* References
+** Applet, desklet and extension settings.
+   http://developer.linuxmint.com/reference/git/cinnamon-tutorials/xlet-settings.html
+
+** Debug a Cinnamon applet.
+   Tip: Use global.log()
+   https://stackoverflow.com/questions/14025722/how-to-debug-cinnamon-applet
+
+** Panel in setting:
+   #+BEGIN_EXAMPLE splited to read easily
+   enabled-applets=[
+   'panel1:left:0:spacer@cinnamon.org:80', 
+   'panel1:left:1:power@cinnamon.org:11', 
+  
+   'panel1:left:2:spacer@cinnamon.org:88', 'panel1:left:3:separator@cinnamon.org:62', 
+   'panel1:left:4:calendar@cinnamon.org:13', 
+
+   'panel1:left:5:spacer@cinnamon.org:78', 'panel1:left:6:separator@cinnamon.org:69', 'panel1:left:7:spacer@cinnamon.org:97', 
+   'panel1:left:8:weather@mockturtl:56', 
+
+   'panel1:left:9:spacer@cinnamon.org:82', 'panel1:left:10:separator@cinnamon.org:60', 'panel1:left:11:spacer@cinnamon.org:58', 
+   'panel1:left:12:netusagemonitor@tom:43', 
+
+   'panel1:left:13:spacer@cinnamon.org:83', 'panel1:left:14:separator@cinnamon.org:61', 'panel1:left:15:spacer@cinnamon.org:89', 
+   'panel1:left:17:settings-example@tom:105', 'panel1:left:16:test@tom:115', 
+   'panel1:right:0:notifications@cinnamon.org:4', 
+
+   'panel1:right:2:separator@cinnamon.org:96', 'panel1:right:4:spacer@cinnamon.org:81', 
+   'panel1:right:5:systray@cinnamon.org:16', 
+
+   'panel1:right:6:spacer@cinnamon.org:79', 'panel1:right:7:separator@cinnamon.org:63', 'panel1:right:8:spacer@cinnamon.org:84', 
+   'panel1:right:9:hwmonitor@tom:42', 
+
+   'panel1:right:10:spacer@cinnamon.org:85', 
+   'panel1:right:11:workspace-switcher@cinnamon.org:17', 
+
+   'panel1:right:12:spacer@cinnamon.org:77', 'panel1:right:13:separator@cinnamon.org:64', 'panel1:right:14:spacer@cinnamon.org:87', 
+   'panel1:right:15:network@cinnamon.org:9', 
+
+   'panel1:right:16:spacer@cinnamon.org:86', 'panel1:right:17:separator@cinnamon.org:65', 'panel1:right:18:spacer@cinnamon.org:90', 
+   'panel1:right:19:sound@cinnamon.org:10', 
+
+   'panel1:right:20:spacer@cinnamon.org:91', 'panel1:right:21:separator@cinnamon.org:66', 
+   'panel1:right:23:keyboard@cinnamon.org:7', 
+
+   'panel1:right:26:spacer@cinnamon.org:94', 
+   'panel1:right:27:user@cinnamon.org:5', 
+   'panel1:right:28:spacer@cinnamon.org:95']
+   #+END_EXAMPLE
+   #+BEGIN_EXAMPLE original
+ enabled-applets=['panel1:left:0:spacer@cinnamon.org:80', 'panel1:left:1:power@cinnamon.org:11', 'panel1:left:2:spacer@cinnamon.org:88', 'panel1:left:3:separator@cinnamon.org:62', 'panel1:left:4:calendar@cinnamon.org:13', 'panel1:left:5:spacer@cinnamon.org:78', 'panel1:left:6:separator@cinnamon.org:69', 'panel1:left:7:spacer@cinnamon.org:97', 'panel1:left:8:weather@mockturtl:56', 'panel1:left:9:spacer@cinnamon.org:82', 'panel1:left:10:separator@cinnamon.org:60', 'panel1:left:11:spacer@cinnamon.org:58', 'panel1:left:12:netusagemonitor@tom:43', 'panel1:left:13:spacer@cinnamon.org:83', 'panel1:left:14:separator@cinnamon.org:61', 'panel1:left:15:spacer@cinnamon.org:89', 'panel1:left:17:settings-example@tom:105', 'panel1:left:16:test@tom:115', 'panel1:right:0:notifications@cinnamon.org:4', 'panel1:right:2:separator@cinnamon.org:96', 'panel1:right:4:spacer@cinnamon.org:81', 'panel1:right:5:systray@cinnamon.org:16', 'panel1:right:6:spacer@cinnamon.org:79', 'panel1:right:7:separator@cinnamon.org:63', 'panel1:right:8:spacer@cinnamon.org:84', 'panel1:right:9:hwmonitor@tom:42', 'panel1:right:10:spacer@cinnamon.org:85', 'panel1:right:11:workspace-switcher@cinnamon.org:17', 'panel1:right:12:spacer@cinnamon.org:77', 'panel1:right:13:separator@cinnamon.org:64', 'panel1:right:14:spacer@cinnamon.org:87', 'panel1:right:15:network@cinnamon.org:9', 'panel1:right:16:spacer@cinnamon.org:86', 'panel1:right:17:separator@cinnamon.org:65', 'panel1:right:18:spacer@cinnamon.org:90', 'panel1:right:19:sound@cinnamon.org:10', 'panel1:right:20:spacer@cinnamon.org:91', 'panel1:right:21:separator@cinnamon.org:66', 'panel1:right:23:keyboard@cinnamon.org:7', 'panel1:right:26:spacer@cinnamon.org:94', 'panel1:right:27:user@cinnamon.org:5', 'panel1:right:28:spacer@cinnamon.org:95']  
+   #+END_EXAMPLE
